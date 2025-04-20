@@ -8,6 +8,13 @@ size = Vector2(128, 128)
 
 [node name="Main2D" type="Node2D"]
 
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Environment"]
+position = Vector2(137, 176.5)
+scale = Vector2(1.95312, 0.179688)
+texture = ExtResource("1_8fxy5")
+
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_aff44")
 Speed = 240.0
