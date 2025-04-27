@@ -11,5 +11,23 @@ public partial class Weapon : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		//# input
+		if (Input.IsActionPressed("primary_fire"))
+		{
+			PrimaryFire();
+		}
+	}
+
+	public void PrimaryFire()
+	{
+		if (CanPrimaryFire())
+		{
+			GD.Print("PrimaryFire");
+		}
+	}
+
+	private bool CanPrimaryFire()
+	{ // this should be made more advanced
+		return Input.IsActionJustPressed("primary_fire");
 	}
 }
