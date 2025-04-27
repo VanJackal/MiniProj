@@ -3,6 +3,8 @@ using System;
 
 public partial class Weapon : Node2D
 {
+
+	[Export] public PackedScene projectileScene;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -22,12 +24,21 @@ public partial class Weapon : Node2D
 	{
 		if (CanPrimaryFire())
 		{
-			GD.Print("PrimaryFire");
+			Vector2 target = (GetGlobalMousePosition() - GetGlobalPosition()).Normalized(); // get the direction vector from the weapon
+			FireProjectile(target);
 		}
 	}
 
+	private void FireProjectile(Vector2 target)
+	{
+		Projectile fired = projectileScene.Instantiate<Projectile>();
+
+		fired.SetVelocity(target);
+		AddChild(fired);
+	}
+
 	private bool CanPrimaryFire()
-	{ // this should be made more advanced
+	{ // todo this should be made more advanced
 		return Input.IsActionJustPressed("primary_fire");
 	}
 }

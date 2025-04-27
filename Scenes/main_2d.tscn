@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://2438b5vil3uw"]
+[gd_scene load_steps=6 format=3 uid="uid://2438b5vil3uw"]
 
 [ext_resource type="Texture2D" uid="uid://rywmri26h3tu" path="res://icon.svg" id="1_8fxy5"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_aff44"]
 [ext_resource type="Script" path="res://Scripts/Weapon.cs" id="3_1gqav"]
+[ext_resource type="PackedScene" uid="uid://5wc6vgpwea8s" path="res://Scenes/bullet.tscn" id="4_ds3iw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8qgp"]
 size = Vector2(128, 128)
@@ -30,3 +31,4 @@ shape = SubResource("RectangleShape2D_x8qgp")
 
 [node name="Weapon" type="Node2D" parent="Player"]
 script = ExtResource("3_1gqav")
+projectileScene = ExtResource("4_ds3iw")

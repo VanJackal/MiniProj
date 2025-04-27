@@ -1,4 +1,4 @@
 # TODO
-- [ ] add shooting
+- [x] add shooting
 - [ ] add enemies
 - [ ] add scoring
