@@ -18,6 +18,7 @@ scale = Vector2(1.95312, 0.179688)
 texture = ExtResource("1_8fxy5")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+collision_mask = 7
 script = ExtResource("1_aff44")
 Speed = 240.0
 
@@ -29,6 +30,10 @@ shape = SubResource("RectangleShape2D_x8qgp")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Weapon" type="Node2D" parent="Player"]
+[node name="Weapon" type="Node2D" parent="Player" node_paths=PackedStringArray("projectileOrigin")]
 script = ExtResource("3_1gqav")
 projectileScene = ExtResource("4_ds3iw")
+projectileOrigin = NodePath("Barrel")
+
+[node name="Barrel" type="Node2D" parent="Player/Weapon"]
+position = Vector2(100, 0)

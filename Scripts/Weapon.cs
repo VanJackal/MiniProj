@@ -5,6 +5,8 @@ public partial class Weapon : Node2D
 {
 
 	[Export] public PackedScene projectileScene;
+	[Export] public Node2D projectileOrigin;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -18,6 +20,8 @@ public partial class Weapon : Node2D
 		{
 			PrimaryFire();
 		}
+
+		//todo rotate the weapon to face the mouse
 	}
 
 	public void PrimaryFire()
@@ -34,6 +38,7 @@ public partial class Weapon : Node2D
 		Projectile fired = projectileScene.Instantiate<Projectile>();
 
 		fired.SetVelocity(target);
+		fired.SetGlobalPosition(projectileOrigin.GlobalPosition);
 		AddChild(fired);
 	}
 

@@ -20,4 +20,15 @@ public partial class Projectile : RigidBody2D
 		LinearVelocity = velocity * _projectileSpeed;
 		Rotation = Mathf.Atan2(LinearVelocity.Y, LinearVelocity.X) ;
 	}
+
+
+	public void _on_body_entered(Node body)
+	{
+		GD.Print($"hit body: {body}");
+		QueueFree();
+	}
+	public void _on_hitbox_body_exited(Node body)
+	{
+		GD.Print("body entered");
+	}
 }
